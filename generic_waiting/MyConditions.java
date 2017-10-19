@@ -7,6 +7,8 @@ import java.util.NoSuchElementException;
 import java.util.function.BiFunction;
 
 public class MyConditions {
+    private MyConditions(){}
+    
     public static <T, S> boolean waitingBy(BiFunction<T, S, Boolean> function, Tuple2<T, S> funcParametr){
         final long timeout = Configuration.timeout;
         final long startTime = System.currentTimeMillis();
