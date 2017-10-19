@@ -1,33 +1,49 @@
 package test.network_tree_winget;
 
-import main.elements.widgets.node_tree.NetworkTreeWidget;
-import main.elements.widgets.node_tree.nodes.GroupOfNetworkTree;
+import io.vavr.Tuple;
+import main.elements.context_menu.ContextMenu;
+import main.elements.widgets.BasePageElement;
+import main.elements.widgets.node_tree.nodes.NodeTreeContextMenuItem;
 import main.elements.wizards.sensor_wizards.SelectWizardSensor;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import main.utility.utils.MyConditions;
 
-public class ExampleOfUse {
-    private NetworkTreeWidget networkTreeWidget;
-    private GroupOfNetworkTree group;
+import java.util.NoSuchElementException;
 
-    private final String GROUP_NAME = "Test Group";
+import static com.codeborne.selenide.Condition.text;
 
-    @BeforeClass
-    public void setUp(){
-        networkTreeWidget = new NetworkTreeWidget();
-        group = networkTreeWidget.getGroup(GROUP_NAME);
+
+public abstract class NodeOfNetworkTree extends BasePageElement {
+
+    /**
+     * Standart contexClick() performs a context-click at middle of the given element.
+     * while clicking can be performed on a sensor or an action
+     * This method perform click in top-left cornet of the given element
+     */
+    final ContextMenu callContexMenu() {
+        //implement contex menu for Node
     }
 
-    @Test()
-    public void addHttpSensor(){
+    // sensor's methods
+    public NodeOfNetworkTree addDefaultSensor(SelectWizardSensor sensor, String nameSensor) {
+        callContexMenu().clickOnMenuItem(NodeTreeContextMenuItem.ADD_SENSOR);
+        sensor
+            .getConfigWizardConstructor()
+            .get()
+            .createDefaultSensor(nameSensor);
+        return this;
+    }
 
-        // GIVEN
-        final String NAME_SENSOR = "HTTP Content Sensor";
-
-        // WHEN
-        this.group.addDefaultSensor(SelectWizardSensor.HTTP_CONTENT, NAME_SENSOR);
-
-        // THEN
-        this.group.shoudHasSensor(NAME_SENSOR);
+    NodeOfNetworkTree shoudHasSensor(String sensorName) {
+        if (MyConditions.waitingBy((node, sensorCaption) -> {
+                return node.
+                    getAllSensors().
+                    stream().
+                    anyMatch((element) -> element.has(text(sensorCaption)));
+            },
+            Tuple.of(this, sensorName))
+            ) {
+            return this;
+        }
+        throw new NoSuchElementException( this + " has not sensor " + sensorName);
     }
 }
