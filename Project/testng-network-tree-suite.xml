@@ -1,0 +1,57 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NetworkTreeSuite" verbose="1" parallel="false">
+    <test name="RunAllTestMethods">
+        <classes>
+            <class name="test.e2e.widgets.nettree.ActionsWithNetworkTree">
+                <methods>
+                    <include name="addNewDeviceToRootUsingButtonShortForm" />
+                    <include name="addNewDeviceToGroupUsingButtonShortForm" />
+                    <include name="addNewDeviceToRootUsingButtonLongForm" />
+                    <include name="simpleSearch" />
+                    <include name="sortingByMainFieldNotIp" />
+                    <include name="sortingByAdditionalFieldNotIp" />
+                    <include name="sortingByMainFieldIp" />
+                    <include name="sortingByAdditionalFieldIp" />
+                    <include name="reverseSortingByMainField" />
+                    <include name="reverseSortingByAdditionalField" />
+                    <include name="selectHostnameMainField" />
+                    <include name="selectIpMainField" />
+                    <include name="selectMacMainField" />
+                    <include name="selectCaptionMainField" />
+                    <include name="selectIpAdditionalField" />
+                    <include name="selectMacAdditionalField" />
+                    <include name="selectCaptionAdditionalField" />
+                    <include name="selectNoneAdditionalField" />
+                    <include name="selectIpMainSameAdditionalField" />
+                    <include name="selectMacMainSameAdditionalField" />
+                    <include name="selectIpAdditionalSameMainField" />
+                    <include name="selectMacAdditionalSameMainField" />
+                    <include name="selectCaptionAdditionalSameMainField" />
+                    <include name="collapseAllGroup" />
+                    <include name="expandAllGroup" />
+                </methods>
+            </class>
+            <class name="test.e2e.widgets.nettree.MovingInNetworkTree">
+                <methods>
+                    <include name="moveDeviceFromGroupToRoot" />
+                    <include name="moveDeviceFromRootToGroup" />
+                    <include name="moveDeviceFrom3DepthTo2Depth" />
+                    <include name="moveDeviceFrom2DepthTo3Depth" />
+                    <include name="moveSiblingsDevices" />
+                    <include name="moveDevicesDifferentDepths" />
+                    <include name="moveEmptyGroup" />
+                    <include name="moveNoEmptyGroup" />
+                    <include name="moveSiblingsDeviceAndGroup" />
+                    <include name="moveDeviceAndGroupDifferentDepths" />
+                    <include name="moveFreeStoreyStructure" />
+                </methods>
+            </class>
+            <class name="test.e2e.widgets.nettree.ActionsWithRootOfNetworkTree">
+                <methods>
+                    <include name="addNewGroupToGroup" />
+                    <include name="addNewDeviceToGroupUsingContexMenu" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
