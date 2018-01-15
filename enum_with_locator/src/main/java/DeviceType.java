@@ -1,7 +1,4 @@
-package test.network_tree_winget;
-
 import lombok.Getter;
-import main.utility.my_interface.MyLocatorInterface;
 import org.openqa.selenium.By;
 
 import java.util.Optional;
@@ -59,7 +56,7 @@ public enum DeviceType implements MyLocatorInterface {
     }
 
     /**
-     * return null, if if nothing is selected in the Select "Device type"
+     * return null, if nothing is selected in the Select "Device type"
      * throw exeption IllegalArgumentException, if the expectedCaption is not in the list
      */
     public static Optional<DeviceType> typeOf(final String expectedCaption) throws IllegalArgumentException{
