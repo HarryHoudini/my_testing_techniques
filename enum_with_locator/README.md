@@ -7,4 +7,5 @@
 [DeviceType](src/main/java/DeviceType.java) - перечисление, реализующее интерфейс ***MyLocatorInterface***. Кроме этого имеет метод, который по строке возвращает тип перечисления
 
 [DeviceModal](src/main/java/DeviceModal.java) -  PageObject модального окна выбора типа устройства. У DeviceModal есть комбобокс выбора типа устройства. 
+
 [example](src/test/java/example.java) - пример. в котором показана смена типа устройства. 
