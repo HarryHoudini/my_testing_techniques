@@ -8,10 +8,8 @@
 
 Ну и куда же без ****chaining****. Задание параметров в ****Builder**** решил выполнить так, чтобы их можно было объединить в цепочку.
 
-`RegistryKeyValueData` - класс с ***Builder***
+[RegistryKeyValueData](src/main/java/RegistryKeyValueData.java) - класс с ***Builder***
 
-`RegistryKeyValueSensor` - класс, экземпляр которого будет создаваться на основании данных, хранимых в экземпляре ****RegistryKeyValueData****
+[RegistryKeyValueSensor](src/main/java/RegistryKeyValueSensor.java) - класс, экземпляр которого будет создаваться на основании данных, хранимых в экземпляре ****RegistryKeyValueData****
 
-`ExampleOfUse.java` - сам пример
-
-Для ***RegistryKeyValueData*** и ***RegistryKeyValueSensor*** использовал анотации Lombok, которые позволяют избавиться от boilerplate кода (в конкретном примере геттеры, сеттеры, конструкторы)
+[example.java](src/test/java/example.java) - сам пример, который показывает всю красоту данного подхода

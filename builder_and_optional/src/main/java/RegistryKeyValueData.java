@@ -1,12 +1,9 @@
-package test.network_tree_winget;
-
 import lombok.Getter;
-import main.data.sensors.SensorData;
 
 import java.util.Optional;
 
 @Getter
-public class RegistryKeyValueData extends SensorData {
+public class RegistryKeyValueData {
     private final Optional<String>        caption;
     private final Optional<String>        key;
     private final Optional<String>        valueName;

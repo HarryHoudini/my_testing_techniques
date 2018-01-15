@@ -1,5 +1,3 @@
-package test.network_tree_winget;
-
 import lombok.Getter;
 import lombok.Setter;
 
